@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: cloud-payment-service
+    name: cloud-provider-payment
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://localhost:3306/springcloud?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
@@ -15,4 +15,14 @@ mybatis:
   mapperLocations: classpath:mapper/*.xml
   type-aliases-package: com.springcloud.entity
 
-
+eureka:
+  client:
+    register-with-eureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    instance-id: payment8001
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 90
+    lease-renewal-interval-in-seconds: 30
