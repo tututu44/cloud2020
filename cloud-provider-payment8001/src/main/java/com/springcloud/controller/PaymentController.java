@@ -42,4 +42,16 @@ public class PaymentController {
             return new CommonResult(444, "没有对应记录，查询ID：" + id + ",port:" + port, null);
         }
     }
+
+    @GetMapping("/payment/test/feignTimeOut")
+    public String testFeignTimeOut() {
+        log.info("----------------------------------------------/payment/test/feignTimeOut");
+        return "testFeignTimeOut,port:" + port;
+    }
+
+    @GetMapping("/payment/lb")
+    public String getPaymentById() {
+        log.info("---------------------------------------------/payment/lb");
+        return "/payment/lb:" + port;
+    }
 }
